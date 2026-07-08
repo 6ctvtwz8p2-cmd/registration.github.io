@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Бесплатный вебинар по трейдингу для новичков</title>
+  <meta name="description" content="Бесплатный вводный онлайн-вебинар по трейдингу для новичков. Зарегистрируйтесь и получите ссылку на участие." />
+
+  <!--
+    Сюда можно вставить Meta Pixel / Google Tag Manager.
+    Пример Meta Pixel события Lead лучше вешать на страницу спасибо или успешную отправку формы.
+  -->
+
+  <style>
+    :root {
+      --bg: #070b16;
+      --bg2: #0c1224;
+      --card: rgba(255, 255, 255, 0.08);
+      --card2: rgba(255, 255, 255, 0.12);
+      --text: #f7f9ff;
+      --muted: #aab4ce;
+      --line: rgba(255, 255, 255, 0.14);
+      --accent: #7c5cff;
+      --accent2: #26d6a5;
+      --danger: #ffcf5a;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      --radius: 28px;
+      --radius2: 18px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(124, 92, 255, 0.34), transparent 34%),
+        radial-gradient(circle at 84% 18%, rgba(38, 214, 165, 0.18), transparent 30%),
+        linear-gradient(145deg, var(--bg), var(--bg2) 52%, #090d19);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), transparent 78%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 12px 34px rgba(124, 92, 255, .38);
+      font-weight: 900;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: 14px;
+      border: 1px solid var(--line);
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.045);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero {
+      padding: 58px 0 54px;
+      display: grid;
+      grid-template-columns: 1.03fr .97fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: #dce4ff;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(14px);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 99px;
+      background: var(--accent2);
+      box-shadow: 0 0 0 7px rgba(38,214,165,.12);
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: .98;
+      margin: 0 0 22px;
+      letter-spacing: -0.065em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 25%, #bbaeff 58%, #6ff2d1 98%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      margin: 0 0 28px;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      cursor: pointer;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 16px;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn-primary {
+      color: #071016;
+      background: linear-gradient(135deg, #ffffff, #73f0d2);
+      box-shadow: 0 18px 42px rgba(38,214,165,.25);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 24px 54px rgba(38,214,165,.34); }
+
+    .btn-secondary {
+      color: var(--text);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 640px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      border-radius: 18px;
+      padding: 16px;
+      backdrop-filter: blur(14px);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+    }
+
+    .stat span { color: var(--muted); font-size: 13px; line-height: 1.35; display: block; }
+
+    .form-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.13), rgba(255,255,255,.07));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      border-radius: var(--radius);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px -1px auto auto;
+      width: 170px;
+      height: 170px;
+      background: radial-gradient(circle, rgba(124,92,255,.36), transparent 68%);
+      pointer-events: none;
+    }
+
+    .form-card h2 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      letter-spacing: -0.045em;
+    }
+
+    .form-card p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .field { margin-bottom: 14px; }
+
+    label {
+      display: block;
+      font-size: 13px;
+      color: #d8def3;
+      margin-bottom: 7px;
+      font-weight: 700;
+    }
+
+    input, select {
+      width: 100%;
+      min-height: 52px;
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(4,8,18,.58);
+      color: var(--text);
+      padding: 0 15px;
+      font-size: 15px;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    input::placeholder { color: rgba(170,180,206,.72); }
+    input:focus { border-color: rgba(38,214,165,.72); box-shadow: 0 0 0 4px rgba(38,214,165,.12); }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .form-note {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      margin: 14px 0 18px;
+    }
+
+    .form-note input {
+      width: 18px;
+      min-height: 18px;
+      margin-top: 1px;
+      accent-color: var(--accent2);
+    }
+
+    .form-card .btn { width: 100%; }
+
+    .message {
+      display: none;
+      margin-top: 14px;
+      padding: 13px 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .message.success {
+      display: block;
+      background: rgba(38,214,165,.12);
+      border: 1px solid rgba(38,214,165,.28);
+      color: #dffdf4;
+    }
+
+    .message.error {
+      display: block;
+      background: rgba(255, 92, 92, .12);
+      border: 1px solid rgba(255, 92, 92, .28);
+      color: #ffe5e5;
+    }
+
+    .section { padding: 54px 0; }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 26px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.06;
+      letter-spacing: -0.055em;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius2);
+      padding: 22px;
+      backdrop-filter: blur(16px);
+      min-height: 190px;
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(124,92,255,.16);
+      border: 1px solid rgba(124,92,255,.24);
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .program {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .program-side {
+      border: 1px solid var(--line);
+      background: linear-gradient(160deg, rgba(124,92,255,.18), rgba(38,214,165,.1));
+      border-radius: var(--radius);
+      padding: 28px;
+      min-height: 100%;
+    }
+
+    .program-side h2 {
+      margin: 0 0 14px;
+      font-size: 36px;
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+    }
+
+    .program-side p { color: var(--muted); line-height: 1.55; margin: 0; }
+
+    .steps {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.07);
+      border-radius: var(--radius);
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 12px;
+      padding: 21px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step:last-child { border-bottom: 0; }
+
+    .num {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      font-weight: 900;
+      border: 1px solid var(--line);
+    }
+
+    .step h3 { margin: 0 0 6px; font-size: 19px; }
+    .step p { margin: 0; color: var(--muted); line-height: 1.5; }
+
+    .final-cta {
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+      border-radius: var(--radius);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .final-cta h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.07;
+      letter-spacing: -0.05em;
+    }
+
+    .final-cta p { margin: 0; color: var(--muted); line-height: 1.55; }
+
+    .risk {
+      border: 1px solid rgba(255,207,90,.26);
+      background: rgba(255,207,90,.08);
+      border-radius: var(--radius2);
+      padding: 18px;
+      color: #fff3cf;
+      font-size: 13px;
+      line-height: 1.55;
+      margin-top: 20px;
+    }
+
+    footer {
+      color: rgba(170,180,206,.74);
+      border-top: 1px solid var(--line);
+      padding: 26px 0 34px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 920px) {
+      .hero, .program, .final-cta { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr; }
+      .final-cta .btn { width: 100%; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(100% - 24px, var(--max)); }
+      .nav { padding: 16px 0; }
+      .nav-link { display: none; }
+      .hero { padding: 36px 0 36px; }
+      .form-card { padding: 20px; border-radius: 22px; }
+      .split { grid-template-columns: 1fr; }
+      .step { grid-template-columns: 1fr; }
+      .final-cta { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="container nav">
+    <a href="#top" class="brand" aria-label="TradeStart">
+      <span class="brand-mark">T</span>
+      <span>TradeStart</span>
+    </a>
+    <a class="nav-link" href="#registration">Забронировать место</a>
+  </header>
+
+  <main id="top">
+    <section class="container hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Бесплатный онлайн-вебинар для новичков</div>
+        <h1>Пойми основы трейдинга <span class="gradient-text">без хаоса и сложных терминов</span></h1>
+        <p class="lead">За один вводный вебинар разберём, как устроен рынок, с чего начать новичку, какие ошибки чаще всего сливают депозит и как подходить к торговле более осознанно.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#registration">Зарегистрироваться бесплатно</a>
+          <a class="btn btn-secondary" href="#program">Что будет на вебинаре</a>
+        </div>
+
+        <div class="stats" aria-label="Ключевая информация о вебинаре">
+          <div class="stat"><strong>0 ₽</strong><span>участие бесплатное</span></div>
+          <div class="stat"><strong>60–90</strong><span>минут живого разбора</span></div>
+          <div class="stat"><strong>Online</strong><span>ссылка придёт после регистрации</span></div>
+        </div>
+      </div>
+
+      <aside class="form-card" id="registration">
+        <h2>Забрать место</h2>
+        <p>Оставьте имя и удобный контакт — отправим ссылку на вебинар и напоминание перед стартом.</p>
+
+        <!--
+          ВАЖНО:
+          HTML сам не сохраняет заявки на сервер.
+          Для реального сбора лидов подключите сервис формы:
+          1) Formspree / Getform / Basin — вставьте их URL в action.
+          2) Google Forms — можно встроить или отправлять на endpoint формы.
+          3) Tally / Typeform — заменить эту форму на iframe.
+
+          Сейчас форма работает в демо-режиме: проверяет поля и показывает сообщение спасибо.
+        -->
+        <form id="leadForm" action="#" method="post" novalidate>
+          <div class="field">
+            <label for="name">Ваше имя</label>
+            <input id="name" name="name" type="text" placeholder="Например, Игорь" autocomplete="name" required />
+          </div>
+
+          <div class="split">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="name@email.com" autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="phone">Телефон / Telegram</label>
+              <input id="phone" name="phone" type="tel" placeholder="+7... или @username" autocomplete="tel" />
+            </div>
+          </div>
+
+          <input type="hidden" name="utm_source" id="utm_source" />
+          <input type="hidden" name="utm_medium" id="utm_medium" />
+          <input type="hidden" name="utm_campaign" id="utm_campaign" />
+          <input type="hidden" name="utm_content" id="utm_content" />
+          <input type="hidden" name="utm_term" id="utm_term" />
+          <input type="hidden" name="fbclid" id="fbclid" />
+
+          <label class="form-note">
+            <input id="privacy" name="privacy" type="checkbox" required />
+            <span>Согласен на обработку данных и получение сообщения по вебинару. Можно отписаться в любой момент.</span>
+          </label>
+
+          <button class="btn btn-primary" type="submit">Зарегистрироваться на вебинар</button>
+          <div id="formMessage" class="message" role="status" aria-live="polite"></div>
+        </form>
+      </aside>
+    </section>
+
+    <section class="container section">
+      <div class="section-title">
+        <h2>Для кого этот вебинар</h2>
+        <p>Подойдёт тем, кто только присматривается к трейдингу или уже пробовал торговать, но пока не понимает, как выстроить нормальную систему.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <div class="icon">📌</div>
+          <h3>Новичкам с нуля</h3>
+          <p>Разберём базовые понятия простым языком: биржа, график, сделка, риск, депозит, стратегия.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🧠</div>
+          <h3>Тем, кто устал от хаоса</h3>
+          <p>Покажем, почему случайные сделки и погоня за сигналами часто мешают прогрессу.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🛡️</div>
+          <h3>Тем, кто хочет осторожный старт</h3>
+          <p>Обсудим риск-менеджмент и почему сначала важно учиться, а не пытаться быстро заработать.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section" id="program">
+      <div class="program">
+        <div class="program-side">
+          <h2>Что разберём на эфире</h2>
+          <p>Цель вебинара — дать понятную стартовую карту: что изучать, на что смотреть и каких ошибок избегать в начале.</p>
+          <div class="risk">
+            Трейдинг связан с финансовыми рисками. Вебинар носит образовательный характер и не является индивидуальной инвестиционной рекомендацией.
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="num">01</div>
+            <div>
+              <h3>Как устроен трейдинг</h3>
+              <p>Что такое рынок, ликвидность, волатильность и почему цена двигается не “просто так”.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">02</div>
+            <div>
+              <h3>Типичные ошибки новичков</h3>
+              <p>Вход без плана, завышенный риск, эмоции, торговля по чужим сигналам без понимания логики.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">03</div>
+            <div>
+              <h3>Базовый план старта</h3>
+              <p>Какие темы изучать первыми, как тренироваться и почему демо/малый риск важнее быстрых результатов.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">04</div>
+            <div>
+              <h3>Ответы на вопросы</h3>
+              <p>В конце будет блок с вопросами по старту, рискам, платформам и обучению.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="final-cta">
+        <div>
+          <h2>Зарегистрируйтесь сейчас</h2>
+          <p>Место на вебинаре бесплатное. Оставьте контакт — отправим ссылку и напоминание.</p>
+        </div>
+        <a class="btn btn-primary" href="#registration">Хочу на вебинар</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div>© <span id="year"></span> TradeStart. Образовательный вебинар. Не является индивидуальной инвестиционной рекомендацией.</div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('leadForm');
+    const message = document.getElementById('formMessage');
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
+
+    const params = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'].forEach((key) => {
+      const input = document.getElementById(key);
+      if (input) input.value = params.get(key) || '';
+    });
+
+    function showMessage(type, text) {
+      message.className = 'message ' + type;
+      message.textContent = text;
+    }
+
+    form.addEventListener('submit', function(event) {
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+      const privacy = form.privacy.checked;
+      const emailLooksOk = !email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if (!name) {
+        event.preventDefault();
+        showMessage('error', 'Введите имя.');
+        return;
+      }
+
+      if (!email && !phone) {
+        event.preventDefault();
+        showMessage('error', 'Оставьте email или телефон / Telegram, чтобы мы могли отправить ссылку.');
+        return;
+      }
+
+      if (!emailLooksOk) {
+        event.preventDefault();
+        showMessage('error', 'Проверьте email: кажется, в нём ошибка.');
+        return;
+      }
+
+      if (!privacy) {
+        event.preventDefault();
+        showMessage('error', 'Подтвердите согласие на обработку данных.');
+        return;
+      }
+
+      // Демо-режим для просмотра локально. Заявка не отправляется на сервер.
+      // Для реального сбора лидов замените action="#" на endpoint формы и удалите строки preventDefault/showMessage/reset ниже.
+      if (form.getAttribute('action') === '#') {
+        event.preventDefault();
+        showMessage('success', 'Готово! В демо-режиме форма показала успешную регистрацию. Для реального сбора заявок подключите Formspree, Getform, Google Forms или другой сервис.');
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
